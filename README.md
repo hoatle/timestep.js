@@ -37,6 +37,7 @@ timeStep(function(ctx) {
 ```
 
 ```js
+//Example 3:
 timeStep.extendEasing({
   easeInSine: function (t, b, c, d) {
     return -c * Math.cos(t/d * (Math.PI/2)) + c + b;
