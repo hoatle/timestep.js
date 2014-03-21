@@ -63,6 +63,7 @@ var timeStep = (function(window) {
   function timeStep(step, stepNumber, minTime, maxTime, easing) {
     var timeoutIds = [],
         time = 0,
+        prevTime,
         stopped = false;
 
     easing = easing || supportedEasingMap.linear;
@@ -95,8 +96,11 @@ var timeStep = (function(window) {
         timeoutIds.push(timeoutId);
 
       })(i);
-
+      prevTime = time;
       time = easing(i, minTime, maxTime, stepNumber);
+      if (Math.abs(time - prevTime) < minTime) {
+        time = prevTime + minTime;
+      }
     }
   }
 
