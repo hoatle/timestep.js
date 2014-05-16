@@ -46,6 +46,7 @@
 var timeStep = (function(window) {
 
   var
+  toString = ({}).toString,
   isString = function(obj) {
     return toString.call(obj) == '[object String]';
   },
